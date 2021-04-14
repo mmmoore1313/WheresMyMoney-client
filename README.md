@@ -3,13 +3,13 @@
 > | Contents |  |
 > |--|--|
 > | [About]() | [Technologies Used]() |
-> | [ERD/Wireframe]() | [Future Iterations]() |
+> | [Wireframe]() | [Future Iterations]() |
 > | [Snappshot]() | [Links]() |
 > | [Planning]() |  |
 >
 >
 > ## About App
-> <!-- Desctiption -->
+> This is the Where's My Money App, the General Assembly project version of my [myfinanceapp](https://github.com/mmmoore1313/myfinanceapp) project.
 >
 > ###### [(Return to top)]()
 >
