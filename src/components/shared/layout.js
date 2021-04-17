@@ -1,12 +1,12 @@
 import React, { Fragment } from 'react'
 import Header from './Header'
-// import Footer from './footer'
+import Footer from './footer.js'
 // import BPane from './buttonPane.js'
 import { Card, Container } from 'react-bootstrap'
 
-const Layout = (props) => (
+const Layout = (props, { user }) => (
   <Fragment>
-    <Header />
+    <Header user={user} />
     <Container>
       <Card style={{ width: '18rem' }}>
         <Card.Body>
@@ -16,7 +16,7 @@ const Layout = (props) => (
         </Card.Footer>
       </Card>
     </Container>
-    {/* <Footer /> */}
+    <Footer />
   </Fragment>
 )
 
