@@ -1,51 +1,34 @@
 import React, { Fragment } from 'react'
 // import { withRouter } from 'react-router-dom'
-import { Row, Col, Button, Nav } from 'react-bootstrap'
+import { Row, Col, Button, Nav, Container } from 'react-bootstrap'
 // import Layout from '../shared/layout'
-// import AccountIndex from '../../routes/accountIndex.js'
+// import AccountIndex from '../routes/accountIndex.js'
 
 const authenticatedChoices = (
   <Fragment>
-    <div>
-      <Row>
-        <Col>
-          <Nav.Link href="#sign-out">
-            <Button>
-              Sign-out
-            </Button>
-          </Nav.Link>
-        </Col>
-      </Row>
-      <Row>
-        <Col>
-          <Nav.Link href="#change-password">
-            <Button>
-              Change Password
-            </Button>
-          </Nav.Link>
-        </Col>
-      </Row>
-      <Row>
-        <Col>
-          <Nav.Link href="#create-account">
-            <Button>
-              Create Account
-            </Button>
-          </Nav.Link>
-          <Nav.Link href="#accounts">
-            <Button>
-              Accounts
-            </Button>
-          </Nav.Link>
-        </Col>
-      </Row>
-    </div>
-    {/* <AccountIndex /> */}
+    <Row className='justify-content-center'>
+      <Col>
+        <Nav.Link href="#create-account">
+          <Button>
+            Create Account
+          </Button>
+        </Nav.Link>
+      </Col>
+    </Row>
+    <Row className='justify-content-center'>
+      <Col>
+        <Nav.Link href="#accounts">
+          <Button>
+            Accounts
+          </Button>
+        </Nav.Link>
+      </Col>
+    </Row>
   </Fragment>
 )
 const unauthenticatedChoices = (
   <Fragment>
-    <Row>
+    <Row className='justify-content-center'>
       <Col>
         <Nav.Link href="#sign-up">
           <Button>
@@ -54,7 +37,7 @@ const unauthenticatedChoices = (
         </Nav.Link>
       </Col>
     </Row>
-    <Row>
+    <Row className='justify-content-center'>
       <Col>
         <Nav.Link href="#sign-in">
           <Button>
@@ -65,13 +48,31 @@ const unauthenticatedChoices = (
     </Row>
   </Fragment>
 )
-// const alwaysOptions
+
+const authenticatedTitle = (
+  <Fragment>
+    <Row className='justify-content-center'><h2>Welcome Back!</h2></Row>
+  </Fragment>
+)
+
+const unauthenticatedTitle = (
+  <Fragment>
+    <Row className='justify-content-center'><h2>Welcome!</h2></Row>
+    <Row className='justify-content-center text-center'>
+      <p>
+        Welcome to WheresMy Money! The personal finace tracking App!
+      </p>
+    </Row>
+  </Fragment>
+)
 
 const Home = ({ user }) => (
-  <Fragment>
-    <h1>Hello!</h1>
-    { user ? authenticatedChoices : unauthenticatedChoices }
-  </Fragment>
+  <Container fluid className='justify-content-center'>
+    { user ? authenticatedTitle : unauthenticatedTitle}
+    <Row className='justify-content-center'>
+      { user ? authenticatedChoices : unauthenticatedChoices }
+    </Row>
+  </Container>
 )
 
 export default Home
