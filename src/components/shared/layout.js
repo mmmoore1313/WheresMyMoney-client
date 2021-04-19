@@ -6,7 +6,7 @@ import { Card, Container } from 'react-bootstrap'
 
 const Layout = (props, { user }) => (
   <Fragment>
-    <Header user={user} />
+    <Header user={ user } />
     <Container>
       <Card style={{ width: '18rem' }}>
         <Card.Body>

@@ -2,7 +2,12 @@ import React from 'react'
 // import { withRouter } from 'react-router-dom'
 import { Row, Col, Button, Nav } from 'react-bootstrap'
 import Layout from '../shared/layout'
-// const authenticatedOptions
+
+const authenticatedOptions = (
+  <Fragment>
+  
+  </Fragment>
+)
 // const unauthenticatedOptions
 // const alwaysOptions
 

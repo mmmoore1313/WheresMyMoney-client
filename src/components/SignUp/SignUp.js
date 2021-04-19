@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-// import { withRouter } from 'react-router-dom'
+import { withRouter } from 'react-router-dom'
 
 import { signUp, signIn } from '../../api/auth'
 import messages from '../AutoDismissAlert/messages'
@@ -101,4 +101,4 @@ const SignUp = (props) => {
   )
 }
 
-export default SignUp
+export default withRouter(SignUp)

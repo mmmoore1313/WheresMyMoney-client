@@ -9,7 +9,7 @@ import SignUp from './components/SignUp/SignUp'
 import SignIn from './components/SignIn/SignIn'
 import SignOut from './components/SignOut/SignOut'
 import ChangePassword from './components/ChangePassword/ChangePassword'
-// import Home from './components/shared/Home'
+import Home from './components/shared/Home'
 
 const App = props => {
   const [user, setUser, clearUser] = useState(null)
@@ -48,8 +48,9 @@ const App = props => {
       <div className="App">
         {props.location.state ? props.location.state.msg : null}
       </div>
+
       <main className="container">
-        {/* <Route exact path='/' component={Home} /> */}
+        <Route exact path='/' component={Home} />
         <Route path='/sign-up' render={() => (
           <SignUp msgAlert={msgAlert} setUser={setUser} />
         )} />
