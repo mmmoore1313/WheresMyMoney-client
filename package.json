@@ -1,6 +1,6 @@
 {
-  "name": "react-auth-template",
-  "homepage": "https://github.com/mmmoore1313/WheresMyMoney-client",
+  "name": "WheresMyMoney",
+  "homepage": "https://mmmoore1313.github.io/WheresMyMoney-client/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
