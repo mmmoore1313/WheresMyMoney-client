@@ -1,8 +1,7 @@
 import React, { Component } from 'react'
 import { Redirect } from 'react-router-dom'
 import { accountCreate } from '../../api/accounts.js'
-import Form from 'react-bootstrap/Form'
-import Button from 'react-bootstrap/Button'
+import { Container, Form, Button } from 'react-bootstrap'
 
 class CreateAccount extends Component {
   // const [formData, setFormData] = useState({
@@ -73,48 +72,50 @@ class CreateAccount extends Component {
     }
 
     return (
-      <Form onSubmit={this.handleSubmit}>
-        <h2>Make an Account</h2>
-        <Form.Group>
-          <Form.Label>Account Name</Form.Label>
-          <Form.Control
-            required
-            type="text"
-            name="name"
-            value={name}
-            placeholder="Enter Account name"
-            onChange={this.handleChange}
-          />
-        </Form.Group>
-        <Form.Group>
-          <Form.Label>Account Type</Form.Label>
-          <Form.Control
-            required
-            name="type"
-            value={type}
-            type="text"
-            placeholder="Choose Account Type"
-            onChange={this.handleChange}
-          />
-        </Form.Group>
-        <Form.Group>
-          <Form.Label>Starting Value</Form.Label>
-          <Form.Control
-            required
-            name="amount"
-            value={amount}
-            type="num"
-            placeholder="Account Starting Amount"
-            onChange={this.handleChange}
-          />
-        </Form.Group>
-        <Button
-          variant="primary"
-          type="submit"
-        >
-        Submit
-        </Button>
-      </Form>
+      <Container className='justify-content-center'>
+        <Form onSubmit={this.handleSubmit}>
+          <h2>Make an Account</h2>
+          <Form.Group>
+            <Form.Label>Account Name</Form.Label>
+            <Form.Control
+              required
+              type="text"
+              name="name"
+              value={name}
+              placeholder="Enter Account name"
+              onChange={this.handleChange}
+            />
+          </Form.Group>
+          <Form.Group>
+            <Form.Label>Account Type</Form.Label>
+            <Form.Control
+              required
+              name="type"
+              value={type}
+              type="text"
+              placeholder="Choose Account Type"
+              onChange={this.handleChange}
+            />
+          </Form.Group>
+          <Form.Group>
+            <Form.Label>Starting Value</Form.Label>
+            <Form.Control
+              required
+              name="amount"
+              value={amount}
+              type="num"
+              placeholder="Account Starting Amount"
+              onChange={this.handleChange}
+            />
+          </Form.Group>
+          <Button
+            variant="primary"
+            type="submit"
+          >
+          Submit
+          </Button>
+        </Form>
+      </Container>
     )
   }
 }

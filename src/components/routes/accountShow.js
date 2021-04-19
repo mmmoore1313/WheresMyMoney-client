@@ -2,7 +2,7 @@ import React, { Component, Fragment } from 'react'
 import Spinner from 'react-bootstrap/Spinner'
 // import withRouter to use the match router prop
 import { withRouter, Redirect, Link } from 'react-router-dom'
-import { Button, Row, Col, Container, Table } from 'react-bootstrap'
+import { Button, Row, Col, Container } from 'react-bootstrap'
 import { accountShow, accountDelete } from '../../api/accounts'
 
 class AccountShow extends Component {
@@ -88,17 +88,17 @@ class AccountShow extends Component {
 
     return (
       <Fragment>
-        <Container>
+        <Container className='justify-content-center'>
           <h3>{name}</h3>
           <Row>
             <Col><h4>Current Balance: ${amount}</h4></Col>
             <Col><h4>accountID: {id}</h4></Col>
           </Row>
-          <Table striped bordered hover>
+          {/* <Table striped bordered hover>
             <thead>
               <tr>
                 <th></th>
-                <th>Last Transactino</th>
+                <th>Last Transaction</th>
                 <th>Monthly Total</th>
                 <th>YTD</th>
               </tr>
@@ -117,7 +117,7 @@ class AccountShow extends Component {
                 <td>This will show YTD expenses</td>
               </tr>
             </tbody>
-          </Table>
+          </Table> */}
           <Row>
             <Col><Button onClick={this.handleDelete}>Delete account</Button></Col>
             <Col>

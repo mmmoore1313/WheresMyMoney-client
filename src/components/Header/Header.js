@@ -5,7 +5,6 @@ const authenticatedOptions = (
   <Fragment>
     <DropdownButton id='userMenu' title='User Options'>
       <Dropdown.Item href="#change-password">Change Password</Dropdown.Item>
-      <Dropdown.Item href="#sign-out">Sign Out</Dropdown.Item>
     </DropdownButton>
     <DropdownButton id='accountsMenu' title='Account Options'>
       <Dropdown.Item href="#create-account">Add Account</Dropdown.Item>
@@ -29,7 +28,7 @@ const alwaysOptions = (
 )
 
 const Header = ({ user }) => (
-  <Navbar bg="primary" variant="dark" expand="md">
+  <Navbar bg="primary" variant="dark" expand="md" id='nav'>
     <Navbar.Brand href="#">
       WheresMyMoney
     </Navbar.Brand>

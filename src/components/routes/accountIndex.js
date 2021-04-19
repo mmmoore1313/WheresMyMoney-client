@@ -1,6 +1,6 @@
-import React, { Component, Fragment } from 'react'
+import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
-import { Spinner, Table } from 'react-bootstrap'
+import { Spinner, Table, Row, Col, Button, Nav, Container } from 'react-bootstrap'
 import { accountIndex } from '../../api/accounts.js'
 
 class AccountIndex extends Component {
@@ -67,22 +67,36 @@ class AccountIndex extends Component {
     ))
 
     return (
-      <Fragment>
-        <h3>Accounts</h3>
-        <Table striped bordered hover>
-          <thead>
-            <tr>
-              <th>Account ID</th>
-              <th>Account Name</th>
-              <th>Balance</th>
-              {/* <th>Options</th> */}
-            </tr>
-          </thead>
-          <tbody>
-            {accountsJsx}
-          </tbody>
-        </Table>
-      </Fragment>
+      <Container>
+        <Row className='justify-content-center'>
+          <Col><Nav.Link href="#/">
+            <Button>
+              Home
+            </Button>
+          </Nav.Link></Col>
+          <Col><h3>Accounts</h3></Col>
+          <Col><Nav.Link href="#create-account">
+            <Button>
+              Add Account
+            </Button>
+          </Nav.Link></Col>
+        </Row>
+        <Row className='justify-content-center'>
+          <Table striped bordered hover>
+            <thead>
+              <tr>
+                <th>Account ID</th>
+                <th>Account Name</th>
+                <th>Balance</th>
+                {/* <th>Options</th> */}
+              </tr>
+            </thead>
+            <tbody>
+              {accountsJsx}
+            </tbody>
+          </Table>
+        </Row>
+      </Container>
     )
   }
 }
