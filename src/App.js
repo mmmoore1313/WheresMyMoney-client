@@ -5,10 +5,15 @@ import { v4 as uuid } from 'uuid'
 import AuthenticatedRoute from './components/AuthenticatedRoute/AuthenticatedRoute'
 import AutoDismissAlert from './components/AutoDismissAlert/AutoDismissAlert'
 import Header from './components/Header/Header'
+import Home from './components/shared/home'
 import SignUp from './components/SignUp/SignUp'
 import SignIn from './components/SignIn/SignIn'
 import SignOut from './components/SignOut/SignOut'
 import ChangePassword from './components/ChangePassword/ChangePassword'
+import CreateAccount from './components/routes/accountCreate'
+import AccountIndex from './components/routes/accountIndex'
+import AccountShow from './components/routes/accountShow'
+import AccountUpdate from './components/routes/accountUpdate'
 
 class App extends Component {
   constructor (props) {
@@ -52,7 +57,11 @@ class App extends Component {
             deleteAlert={this.deleteAlert}
           />
         ))}
+
         <main className="container">
+          <Route exact path='/' render={() => (
+            <Home user={user} />
+          )} />
           <Route path='/sign-up' render={() => (
             <SignUp msgAlert={this.msgAlert} setUser={this.setUser} />
           )} />
@@ -64,6 +73,18 @@ class App extends Component {
           )} />
           <AuthenticatedRoute user={user} path='/change-password' render={() => (
             <ChangePassword msgAlert={this.msgAlert} user={user} />
+          )} />
+          <AuthenticatedRoute user={user} path='/create-account' render={() => (
+            <CreateAccount msgAlert={this.msgAlert} user={user} />
+          )} />
+          <AuthenticatedRoute user={user} exact path='/accounts' render={() => (
+            <AccountIndex msgAlert={this.msgAlert} user={user} />
+          )} />
+          <AuthenticatedRoute user={user} exact path='/accounts/:id' render={() => (
+            <AccountShow msgAlert={this.msgAlert} user={user} />
+          )} />
+          <AuthenticatedRoute user={user} exact path='/accounts/:id/edit' render={() => (
+            <AccountUpdate msgAlert={this.msgAlert} user={user} />
           )} />
         </main>
       </Fragment>

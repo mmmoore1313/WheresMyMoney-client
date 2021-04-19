@@ -1,10 +1,16 @@
 import React, { Fragment } from 'react'
-import Nav from 'react-bootstrap/Nav'
-import Navbar from 'react-bootstrap/Navbar'
+import { Nav, Navbar, Dropdown, DropdownButton } from 'react-bootstrap'
 
 const authenticatedOptions = (
   <Fragment>
-    <Nav.Link href="#change-password">Change Password</Nav.Link>
+    <DropdownButton id='userMenu' title='User Options'>
+      <Dropdown.Item href="#change-password">Change Password</Dropdown.Item>
+      <Dropdown.Item href="#sign-out">Sign Out</Dropdown.Item>
+    </DropdownButton>
+    <DropdownButton id='accountsMenu' title='Account Options'>
+      <Dropdown.Item href="#create-account">Add Account</Dropdown.Item>
+      <Dropdown.Item href="#accounts">View All Accounts</Dropdown.Item>
+    </DropdownButton>
     <Nav.Link href="#sign-out">Sign Out</Nav.Link>
   </Fragment>
 )
@@ -25,7 +31,7 @@ const alwaysOptions = (
 const Header = ({ user }) => (
   <Navbar bg="primary" variant="dark" expand="md">
     <Navbar.Brand href="#">
-      react-auth-template
+      WheresMyMoney
     </Navbar.Brand>
     <Navbar.Toggle aria-controls="basic-navbar-nav" />
     <Navbar.Collapse id="basic-navbar-nav">
