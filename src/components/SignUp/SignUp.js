@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { Component } from 'react'
 import { withRouter } from 'react-router-dom'
 
 import { signUp, signIn } from '../../api/auth'
@@ -6,28 +6,29 @@ import messages from '../AutoDismissAlert/messages'
 
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
-import Layout from '../shared/layout'
 
-const SignUp = (props) => {
-  const [formData, setFormData] = useState({
-    email: '',
-    password: '',
-    passwordConfirmation: ''
-  })
+class SignUp extends Component {
+  constructor (props) {
+    super(props)
 
-  const { email, password, passwordConfirmation } = formData
-
-  function setForm (key, value) {
-    setFormData({ ...formData, [key]: value })
+    this.state = {
+      email: '',
+      password: '',
+      passwordConfirmation: ''
+    }
   }
 
-  function onSignUp (event) {
-    event.preventDefault()
-    const { email, password, passwordConfirmation } = formData
-    const { msgAlert, history, setUser } = props
+  handleChange = event => this.setState({
+    [event.target.name]: event.target.value
+  })
 
-    signUp({ email, password, passwordConfirmation })
-      .then(() => signIn({ email, password }))
+  onSignUp = event => {
+    event.preventDefault()
+
+    const { msgAlert, history, setUser } = this.props
+
+    signUp(this.state)
+      .then(() => signIn(this.state))
       .then(res => setUser(res.data.user))
       .then(() => msgAlert({
         heading: 'Sign Up Success',
@@ -36,11 +37,7 @@ const SignUp = (props) => {
       }))
       .then(() => history.push('/'))
       .catch(error => {
-        setFormData({
-          email: '',
-          password: '',
-          passwordConfirmation: ''
-        })
+        this.setState({ email: '', password: '', passwordConfirmation: '' })
         msgAlert({
           heading: 'Sign Up Failed with error: ' + error.message,
           message: messages.signUpFailure,
@@ -49,12 +46,14 @@ const SignUp = (props) => {
       })
   }
 
-  return (
-    <Layout>
+  render () {
+    const { email, password, passwordConfirmation } = this.state
+
+    return (
       <div className="row">
         <div className="col-sm-10 col-md-8 mx-auto mt-5">
           <h3>Sign Up</h3>
-          <Form onSubmit={ onSignUp }>
+          <Form onSubmit={this.onSignUp}>
             <Form.Group controlId="email">
               <Form.Label>Email address</Form.Label>
               <Form.Control
@@ -63,7 +62,7 @@ const SignUp = (props) => {
                 name="email"
                 value={email}
                 placeholder="Enter email"
-                onChange={event => setForm('email', event.target.value) }
+                onChange={this.handleChange}
               />
             </Form.Group>
             <Form.Group controlId="password">
@@ -74,7 +73,7 @@ const SignUp = (props) => {
                 value={password}
                 type="password"
                 placeholder="Password"
-                onChange={event => setForm('password', event.target.value) }
+                onChange={this.handleChange}
               />
             </Form.Group>
             <Form.Group controlId="passwordConfirmation">
@@ -85,7 +84,7 @@ const SignUp = (props) => {
                 value={passwordConfirmation}
                 type="password"
                 placeholder="Confirm Password"
-                onChange={event => setForm('passwordConfirmation', event.target.value) }
+                onChange={this.handleChange}
               />
             </Form.Group>
             <Button
@@ -97,8 +96,8 @@ const SignUp = (props) => {
           </Form>
         </div>
       </div>
-    </Layout>
-  )
+    )
+  }
 }
 
 export default withRouter(SignUp)
