@@ -83,8 +83,8 @@
 > ## Links
 >> | | **Deployed Sites** | **Repositories** |
 >> |--|--|--|
->> | Front End App: | [appUrl](appUrl) | [WheresMyMoney-client](https://github.com/mmmoore1313/WheresMyMoney-client)|
->> | Database App | [dbUrl](dbUrl) | [DjangoFinanceApi](https://github.com/mmmoore1313/DjangoFinanceApi) |
+>> | Front End App: | [https://mmmoore1313.github.io/WheresMyMoney-client/#/](https://mmmoore1313.github.io/WheresMyMoney-client/#/) | [WheresMyMoney-client](https://github.com/mmmoore1313/WheresMyMoney-client)|
+>> | Database App | [https://djangofinanceapp.herokuapp.com/](https://djangofinanceapp.herokuapp.com/) | [DjangoFinanceApi](https://github.com/mmmoore1313/DjangoFinanceApi) |
 >
 > ###### [(Return to top)](https://github.com/mmmoore1313/WheresMyMoney-client#wheres-my-money)
 >
